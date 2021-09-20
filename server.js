@@ -22,7 +22,7 @@ res.send(weatherData)
 let DataOfWeather=req.query.DataOfWeather;
 console.log(req.query);
 console.log(req.query.DataOfWeather)
-let weatherInfo = DataOfWeather.weather.map((item)=>{
+let weatherInfo = DataOfWeather.weather.find((item)=>{
 array.push(
 new Forecast(`${item.weatherData.description}, ${item.weatherData.date}`)
 
