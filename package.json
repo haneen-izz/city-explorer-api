@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/haneen-izz/city-explorer-api#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "env": "0.0.2",
     "express": "^4.17.1"
   }
 }
