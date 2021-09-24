@@ -1,6 +1,5 @@
 
 const axios = require('axios'); 
-const { query } = require('express');
 
 function getMovieHandler(req, res){
     let searchQuery= req.query.searchQuery;
@@ -11,7 +10,7 @@ function getMovieHandler(req, res){
     axios.get(movieURL).then(movieData => {
       console.log(movieData)
       console.log(movieData.results)
-      const moviesArray = results.data.results.map(movie => new Movie(movie));
+      let moviesArray = results.data.results.map(movie => new Movie(movie));
       response.status(200).send(moviesArray);
     }).catch(error => { res.send(error)
     });
