@@ -1,15 +1,12 @@
-"use strict";
 
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const axios = require("axios");
-
-const getMovieHandler = require("./module/movies");
-const getWeatherHandler = require("./module/weather");
-const PORT = process.env.PORT;
+'use strict';
+const axios = require('axios');
+const express = require('express');
+require('dotenv').config();
+const cors = require('cors');
 
 const server = express();
+const PORT = process.env.PORT;
 server.use(cors());
 
 server.get("/", (req, res) => {
@@ -26,3 +23,4 @@ server.get("*", (request, response) => {
 server.listen(PORT, () => {
   console.log(`listeneing on PORT ${PORT}`);
 });
+
