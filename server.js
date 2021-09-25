@@ -1,26 +1,27 @@
 
 'use strict';
-const axios = require('axios');
-const express = require('express');
-require('dotenv').config();
-const cors = require('cors');
 
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
 const server = express();
+const axios = require('axios');
 const PORT = process.env.PORT;
 server.use(cors());
-
-server.get("/", (req, res) => {
-  res.send("home route");
+const getMovieHandler = require('./module/movies.js');
+const getWeatherHandler = require('./module/weather.js');
+server.get('/', (req, res) => {
+  res.send('home route')
 });
+server.get('/getWeather', getWeatherHandler);
+server.get('/getMovie', getMovieHandler);
 
-server.get("/getWeather", getWeatherHandler);
-server.get("/getMovie", getMovieHandler);
 
-server.get("*", (request, response) => {
-  response.status(404).send("not found");
-});
+server.get('*', (request, response) => {
+  response.status(404).send('not found');
+})
 
 server.listen(PORT, () => {
   console.log(`listeneing on PORT ${PORT}`);
-});
 
+});
